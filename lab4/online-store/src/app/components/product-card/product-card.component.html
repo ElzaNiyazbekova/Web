@@ -1,0 +1,52 @@
+<article class="card">
+  
+  <div class="media">
+    <img class="main-img" [src]="activeImage" [alt]="product.name" />
+
+    <div class="thumbs" *ngIf="product.images?.length >= 3">
+      <button class="a"
+        class="thumb"
+        type="button"
+        *ngFor="let img of product.images"
+        (click)="setImage(img)"
+        [class.active]="img === activeImage"
+        aria-label="select image"
+      >
+        <img class="a" [src]="img" [alt]="product.name" />
+      </button>
+    </div>
+  </div>
+
+  <div class="body">
+    <!-- Name becomes hyperlink -->
+    <h3 class="title">
+      <a [href]="product.link" target="_blank" rel="noopener noreferrer">
+        {{ product.name }}
+      </a>
+    </h3>
+
+    <p class="desc">{{ product.description }}</p>
+
+    <div class="meta">
+      <div class="price">{{ formatKzt(product.price) }}</div>
+
+      <div class="rating" title="Rating">
+        <span class="star" *ngFor="let filled of stars(product.rating)" [ngClass]="product.rating<4.5? 'starless':'starmore'">
+          {{ filled ? '★' : '☆' }}
+        </span>
+        <span class="rating-num">{{ product.rating }}</span>
+      </div>
+    </div>
+
+    <div class="actions">
+      <div class="share">
+        <button class="btn ghost" type="button" (click)="shareWhatsApp()">
+          Share WhatsApp
+        </button>
+        <button class="btn ghost" type="button" (click)="shareTelegram()">
+          Share Telegram
+        </button>
+      </div>
+    </div>
+  </div>
+</article>

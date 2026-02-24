@@ -1,0 +1,104 @@
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.header h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.header p {
+  margin: 0 0 18px;
+  opacity: 0.8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 980px) {
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.header {
+  background: #fff;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.header__inner {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Logo */
+.search-bar__logo {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 18px;
+  color: #111;
+  text-decoration: none;
+  gap: 8px;
+}
+.search-bar__logo img.logo-img {
+  height: 28px;
+}
+
+/* Search */
+.search-bar__wrapper {
+  flex: 1;
+  display: flex;
+  gap: 6px;
+}
+.search-bar__input {
+  flex: 1;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+.search-bar__submit {
+  padding: 6px 12px;
+  background: #007aff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* City */
+.current-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+.current-location__city {
+  font-weight: 500;
+}
+.current-location__confirm-city {
+  display: none; /* Показывать через js, если надо */
+}
+.current-location__button-group button {
+  margin-right: 6px;
+  border: 1px solid #007aff;
+  background: transparent;
+  color: #007aff;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
